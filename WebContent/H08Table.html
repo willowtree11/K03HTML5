@@ -126,7 +126,7 @@ cellspacing='15' bgcolor='yellow' width=200>
 <h3>테이블 연습 - 오늘의 수입/지출</h3>
 <p>HTML속성만 사용</p>
 
-<table border="1" bordercolor=red cellspacing='0' width=300>
+<table border="0" bgcolor=red cellspacing="1" cellpadding='2' width=500>
 	<tr>
 		<td colspan="3" bgcolor='yellow'>오늘의 수입/지출</td>
 	</tr>
@@ -137,35 +137,179 @@ cellspacing='15' bgcolor='yellow' width=200>
 			
 	</tr>
 	<tr>
-		<td>월급</td>
-		<td>1,000,000</td>		
-		<td></td>		
+		<td bgcolor='white'>월급</td>
+		<td bgcolor='white'>1,000,000</td>		
+		<td bgcolor='white'></td>		
 	</tr>
 	<tr>
-		<td>점심값</td>
-		<td></td>		
-		<td>5,000</td>		
+		<td bgcolor='white'>점심값</td>
+		<td bgcolor='white'></td>		
+		<td bgcolor='white'>5,000</td>		
 	</tr>
 	<tr>
-		<td>부모님선물</td>
-		<td></td>		
-		<td>30,000</td>		
+		<td bgcolor='white'>부모님선물</td>
+		<td bgcolor='white'></td>		
+		<td bgcolor='white'>30,000</td>		
 	</tr>
 	<tr>
 		<th rowspan="3" bgcolor='pink'>총계</th>
-		<td>수입</td>		
-		<td>지출</td>		
+		<td bgcolor='white'>수입</td>		
+		<td bgcolor='white'>지출</td>		
 	</tr>	
 	<tr>
-		<td>1,000,000</td>
-		<td>35,000</td>
+		<td bgcolor='white'>1,000,000</td>
+		<td bgcolor='white'>35,000</td>
 	</tr>
 	<tr>
-		<td>남은돈</td>
-		<td>965,000</td>
+		<td bgcolor='white'>남은돈</td>
+		<td bgcolor='white'>965,000</td>
 	</tr>	
 </table>
 
+<h3>웹접근성(웹표준)을 고려한 테이블 속성</h3>
+<!-- 
+	테이블의 크기(사이즈 지정시)
+		절대크기: px로 표현한다
+		상대크기: %로 표현한다. 이 때 웹브라우저의 크기에 따라 상대적으로 변한다.
+ -->
+<table summary="회사 임직원들의 연봉표입니다" 
+style="text-align:center; width:400px; 
+background-color:red; border-spacing:1px">
+	<caption>직원 연봉표</caption>
+	<thead>
+		<tr style="background-color:white; height:50px">
+			<th style="width: 15%">번호</th>
+			<th style="width: 50%">이름</th>
+			<th>연봉</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr style="background-color: white; height:30px">
+			<td>1</td>
+			<td>김길동</td>
+			<td>3000만원</td>
+		</tr>
+		<tr style="background-color: white; height:30px">
+			<td>2</td>
+			<td>박길동</td>
+			<td>5000만원</td>
+		</tr>
+		<tr style="background-color: white; height:30px">
+			<td>3</td>
+			<td>홍길동</td>
+			<td>2500만원</td>
+		</tr>	
+	</tbody>
+	<tfoot>
+		<tr style="background-color: white; height:30px">
+			<th>총급여</th>
+			<td colspan="2">1억 500만원</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+<h3>colgroup및 col 태그를 적용한 테이블</h3>
+
+<table summary="회사 임직원들의 연봉표입니다" 
+style="text-align:center; width:400px; 
+background-color:red; border-spacing:1px">
+	<caption>직원 연봉표</caption>
+	<colgroup>
+		<col width="13%" />
+		<col width="*" />
+		<col width="30%" />
+	</colgroup>
+	<thead>
+		<tr style="background-color:white; height:50px">
+			<th>번호</th>
+			<th>이름</th>
+			<th>연봉</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr style="background-color: white; height:30px">
+			<td>1</td>
+			<td>김길동</td>
+			<td>3000만원</td>
+		</tr>
+		<tr style="background-color: white; height:30px">
+			<td>2</td>
+			<td>박길동</td>
+			<td>5000만원</td>
+		</tr>
+		<tr style="background-color: white; height:30px">
+			<td>3</td>
+			<td>홍길동</td>
+			<td>2500만원</td>
+		</tr>	
+	</tbody>
+	<tfoot>
+		<tr style="background-color: white; height:30px">
+			<th>총급여</th>
+			<td colspan="2">1억 500만원</td>
+		</tr>
+	</tfoot>
+</table>
+
+<h3>테이블연습 - 오늘의 수입/지출-CSS속성 적용</h3>
+	<!-- table>tr*8>td*3 -->
+	<h4>HTML 속성만 사용</h4>
+	<table
+		style="background-color: red; width: 600px;"
+	>
+		<tr style="background-color: yellow;">
+			<td colspan="3">오늘의 수입/지출</td>			
+		</tr>
+		<tr style="background-color:pink">
+			<th>내용</th>
+			<th>수입</th>
+			<th>지출</th>
+		</tr>
+		<tr style="background-color:white">
+			<td>월급</td>
+			<td>1,000,000</td>
+			<td></td>
+		</tr>
+		<tr style="background-color:white">
+			<td>점심값</td>
+			<td></td>
+			<td>5,000</td>
+		</tr>
+		<tr style="background-color:white">
+			<td>부모님선물</td>
+			<td></td>
+			<td>30,000</td>
+		</tr>
+		<tr style="background-color:white">
+			<th rowspan="3" style="background-color:pink">
+				총계
+			</th>
+			<td>수입</td>
+			<td>지출</td>
+		</tr>
+		<tr style="background-color:white">
+			<!-- <td></td> -->
+			<td>1,000,000</td>
+			<td>35,000</td>
+		</tr>
+		<tr style="background-color:white">
+			<!-- <td></td> -->
+			<td>남은돈</td>
+			<td>965,000</td>
+		</tr>
+	</table>	
+
+
+
 <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+
 </body>
 </html>
