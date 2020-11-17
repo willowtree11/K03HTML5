@@ -13,6 +13,37 @@
 	</audio>
 	
 	<h2>Javascript를 이용한 커스텀 오디오 만들기</h2>
-	<!-- JS수업 이후 -->
+	<script>
+		var audio = new Audio("./media/audio.mp3");
+		window.onload=function(){
+
+			var currentSpan=document.getElementById("current_time");
+			var totalSpan=document.getElementById("total_time");
+			var progress=document.getElementById("progress");
+			
+			audio.addEventListener("timeupdate", function(){
+				totalSpan.innerHTML=audio.duration;
+				currentSpan.innerHTML=audio.currentTime;
+				progress.max=audio.duration;
+				progress.value=audio.currentTime;
+			});
+		}
+		function play(){
+			audio.play();
+		}
+		function stop(){
+			audio.pause();
+		}
+	</script>
+	
+	<div>
+		<progress value="0" id="progress"></progress>
+	</div>
+	<div>
+		<input type="button" value="재생하기" onclick="play();">
+		<input type="button" value="일시정지" onclick="stop();">
+		<br>
+		<span id="current_time"></span> / <span id=total_time></span>
+	</div>
 </body>
 </html>
